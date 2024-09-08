@@ -65,6 +65,7 @@
             txtTela.Size = new Size(274, 43);
             txtTela.TabIndex = 0;
             txtTela.TextAlign = HorizontalAlignment.Right;
+            txtTela.TextChanged += txtTela_TextChanged_1;
             // 
             // btn1
             // 

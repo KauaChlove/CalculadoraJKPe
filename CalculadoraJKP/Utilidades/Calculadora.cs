@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace CalculadoraJKP.Utilidades
 {
     public class Calculadora
     {
+        int resultado;
         public double Soma(double n1, double n2)
         {
             return n1 + n2;
@@ -19,7 +21,20 @@ namespace CalculadoraJKP.Utilidades
         }
         public double Divisao(double n1, double n2)
         {
-            return n1 / n2;
+            if (n1 == 0)
+            {
+                MessageBox.Show("Entrada de dados inválida. Por favor, insira um valor diferente de 0.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else if (n2 == 0)
+            {
+                MessageBox.Show("Entrada de dados inválida. Por favor, insira um valor diferente de 0.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else
+            {
+                return n1 / n2;
+            }
         }
         public double Multiplicacao(double n1, double n2)
         {
@@ -63,7 +78,7 @@ namespace CalculadoraJKP.Utilidades
         {
             string binario = "";
             while (n1 > 0)
-            {   
+            {
                 int r = n1 % 2;
                 binario = r + binario;
                 n1 /= 2;
